@@ -23,12 +23,29 @@ void	Contact::setInfo()
 
 void Contact::validStringInput(std::string name, std::string &var)
 {
-	if (std::cin.eof())
-		exit(0);
+	std::string	input;
+
 	if (name == "Phone Number")
 		phoneNumber = validPhoneNumber();
 	else
-		std::getline(std::cin, var);
+	{
+		while (1)
+		{
+			if (std::cin.eof())
+				exit(0);
+			std::getline(std::cin, input);
+			if (input.empty())
+			{
+				std::cout << "\033[1A\r\033[2K" << "\033[1;31m" << name << ": \033[0m" << std::flush;
+				continue;
+			}
+			else
+			{
+				var = input;
+				break;
+			}
+		}
+	}
 	std::cout << "\033[1A\r\033[2K" << "\033[1;32m" << name << ": \033[0m" << var << std::flush << std::endl;
 }
 
@@ -51,7 +68,7 @@ std::string	Contact::validPhoneNumber(void)
 				break;
 			}
 		}
-		if (isValid)
+		if (isValid && !input.empty())
 			return (input);
 		std::cout << "\033[1A\r\033[2K" << "\033[1;31mPhone Number: \033[0m" << std::flush;
 	} 

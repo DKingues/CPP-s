@@ -4,9 +4,7 @@ NAME = phonebook
 
 COMPILER = c++
 
-FLAGS = -Wall -Wextra -Werror
-
-EXTRAFLAG = -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = PhoneBook.cpp Contact.cpp
 
@@ -29,7 +27,7 @@ DEL = echo "Program status: \033[1;31m[KO]\033[0m"
 
 all: $(NAME)
 $(NAME): $(OBJ)
-	@$(COMPILER) $(FLAGS) $(EXTRAFLAG) $(OBJ) -o $(NAME)
+	@$(COMPILER) $(FLAGS) $(OBJ) -o $(NAME)
 	@$(COMP)
 clean:
 	@rm -rf $(OBJ)

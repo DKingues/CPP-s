@@ -1,14 +1,12 @@
 # Name and Compiler
 
-NAME = megaphone
+NAME = account
 
 COMPILER = c++
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
-EXTRAFLAG = -std=c++98
-
-SRC = megaphone.cpp
+SRC = Account.cpp tests.cpp
 
 # Sources and Objects
 
